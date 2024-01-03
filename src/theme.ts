@@ -18,9 +18,19 @@ export const colors = {
   white: '#FFFFFF',
   carnation: '#FF728D',
   dusk: '#414D6B',
+  main: '#1DD3A9',
 };
 
-export const light: DoobooThemeParams = {};
+export const light: DoobooThemeParams = {
+  role: {
+    primary: colors.main,
+  },
+  button: {
+    primary: {
+      bg: colors.main,
+    },
+  },
+};
 
 export type CustomAppTheme = typeof light & DoobooThemeParams;
 

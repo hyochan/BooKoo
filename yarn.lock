@@ -5807,7 +5807,7 @@ expo-notifications@~0.20.1:
     fs-extra "^9.1.0"
     uuid "^3.4.0"
 
-expo-router@^2.0.8:
+expo-router@^2.0.14:
   version "2.0.14"
   resolved "https://registry.npmjs.org/expo-router/-/expo-router-2.0.14.tgz"
   integrity sha512-F5dP4WMe+zQLzlGSbC+NT9/67FGgwmUCJuPGD4BkK0eRt0uga+y53vQ59m5MCOebqE0N9Ukr/Jz8Num16iGqZA==
