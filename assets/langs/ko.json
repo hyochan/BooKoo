@@ -1,0 +1,32 @@
+{
+  "next": "다음",
+  "title": "부쿠",
+  "registerPolicyAgreement": "다음 단계로 진행함과 동시에 {{termsForAgreement}} 및 {{privacyAndPolicy}}에 동의하는 것으로 간주합니다.",
+  "signIn": "로그인",
+  "signUp": "회원가입",
+  "signOut": "로그아웃",
+  "google": "구글",
+  "error": "에러",
+  "retry": "재시도",
+  "errOccurred": "에러가 발생했습니다. 잠시 후 다시 시도해주세요.",
+  "ok": "확인",
+  "cancel": "취소",
+  "termsOfAgreement": "서비스 이용약관",
+  "privacyAndPolicy": "개인정보 보호정책",
+  "signingIn": "로그인 중입니다.",
+  "playServiceIsNotActivated": "Play 서비스가 활성화되지 않았습니다.",
+  "onboarding": {
+    "title": "온보딩",
+    "message1": "나의 수입과 지출을 편리하게 기록할 수 있습니다.",
+    "message2": "친구들과 함께 가계부를 공유하고 관리할 수 있습니다.",
+    "message3": "한눈에 보는 분석그래프로 나의 수입과 지출을 관리할 수 있습니다.",
+    "title1": "기록하세요.",
+    "title2": "공유하세요.",
+    "title3": "관리하세요."
+  },
+  "intro": {
+    "doNotHaveAccount": "계정이 없으신가요?",
+    "orLoginWith": "또는 다음으로 로그인",
+    "loginWithProvider": "%{provider} 계정으로 로그인"
+  }
+}

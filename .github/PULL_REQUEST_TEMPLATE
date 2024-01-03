@@ -1,0 +1,21 @@
+## Why?
+
+<!--
+Please explain the motivation behind this PR, and provide links to related GitHub issues, forum posts, or feature requests.
+-->
+
+## How?
+
+<!--
+How did you implement this feature? Or, how did you fix this bug? And why did you choose to do it this way?
+-->
+
+## Test Plan
+
+<!--
+Please describe how you tested these changes. Especially if this PR does not include automated tests, provide a way for the reviewer to replicate your tests! If possible, also provide terminal output, screenshots, etc. to show your testing and reproduction process.
+-->
+
+## Checklist
+
+- [ ] I have conformed to the [Documentation Writing Style Guide](https://github.com/hyochan/style-guide/blob/main/docs/REACT.md).

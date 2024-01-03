@@ -1,0 +1,32 @@
+{
+  "next": "Next",
+  "title": "BooKoo",
+  "registerPolicyAgreement": "We consider that you agree with {{termsForAgreement}} and {{privacyAndPolicy}} by going onto next step.",
+  "signIn": "Sign in",
+  "signUp": "Sign up",
+  "signOut": "Sign out",
+  "google": "Google",
+  "error": "Error",
+  "retry": "Retry",
+  "ok": "OK",
+  "cancel": "Cancel",
+  "errOccurred": "An error occurred. Please try again later.",
+  "termsOfAgreement": "Terms of Agreement",
+  "privacyAndPolicy": "Privacy and Policy",
+  "signingIn": "You are signing in.",
+  "playServiceIsNotActivated": "The play service is not activated.",
+  "onboarding": {
+    "title": "Onboarding",
+    "message1": "You can conveniently record your income and expenses.",
+    "message2": "You can share and manage a ledger with your friends.",
+    "message3": "You can manage your income and expenses with an easy-to-view analysis graph.",
+    "title1": "Record it.",
+    "title2": "Share it.",
+    "title3": "Manage it."
+  },
+  "intro": {
+    "doNotHaveAccount": "Don't have an account?",
+    "orLoginWith": "or login with",
+    "loginWithProvider": "Sign in with %{provider}"
+  }
+}

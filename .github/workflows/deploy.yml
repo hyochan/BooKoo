@@ -1,0 +1,53 @@
+name: Deploy Web on Release
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          # token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Retrive secret files
+        run: |
+          echo $GOOGLE_SERVICES_ANDROID | base64 --decode >> google-services.json
+          echo $GOOGLE_SERVICES_IOS | base64 --decode >> GoogleService-Info.plist
+        env:
+          GOOGLE_SERVICES_ANDROID: ${{secrets.GOOGLE_SERVICES_ANDROID}}
+          GOOGLE_SERVICES_IOS: ${{secrets.GOOGLE_SERVICES_IOS}}
+  
+
+      - name: Install modules
+        run: bun install --immutable
+
+      - name: Build web
+        run: bun build:web
+        env:
+          ROOT_URL: ${{ secrets.ROOT_URL }}
+          googleClientIdIOS: ${{ secrets.googleClientIdIOS }}
+          googleClientIdAndroid: ${{ secrets.googleClientIdAndroid }}
+          googleClientIdWeb: ${{ secrets.googleClientIdWeb }}
+          expoProjectId: ${{ secrets.expoProjectId }}
+          supabaseUrl: ${{ secrets.supabaseUrl }}
+          supabaseAnonKey: ${{ secrets.supabaseAnonKey }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOOKOO_48D67 }}'
+          channelId: live
+          projectId: bookoo-48d67
+

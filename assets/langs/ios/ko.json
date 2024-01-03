@@ -1,0 +1,9 @@
+{
+  "app_name": "부쿠",
+  "NSCameraUsageDescription": "부쿠가 귀하의 사진을 찍고 사용자와 공유하기를 원합니다.",
+  "NSPhotoLibraryAddUsageDescription": "부쿠가 선택한 사진을 귀하의 사진 갤러리에 저장하려 합니다.",
+  "NSPhotoLibraryUsageDescription": "부쿠가 귀하의 갤러리에 액세스하여 공유할 사진을 선택하려 합니다.",
+  "NSUserTrackingUsageDescription": "부쿠가 자격 있는 광고 서비스를 위해 IDFA에 액세스하려 합니다.",
+  "NSLocationWhenInUseUsageDescription": "부쿠가 더 나은 푸시 알림 서비스를 제공하기 위해 귀하의 위치에 액세스 권한을 요청합니다.",
+  "NSCalendarsUsageDescription": "부쿠가 귀하의 캘린더에 액세스하여 일정을 추가하려 합니다."
+}
