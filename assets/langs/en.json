@@ -28,5 +28,10 @@
     "doNotHaveAccount": "Don't have an account?",
     "orLoginWith": "or login with",
     "loginWithProvider": "Sign in with %{provider}"
-  }
+  },
+  "email": "Email",
+  "password": "Password",
+  "emailLogin": "Email Login",
+  "findPassword": "Find Password",
+  "verifyEmail": "Verify Email"
 }

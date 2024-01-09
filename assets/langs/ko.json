@@ -28,5 +28,10 @@
     "doNotHaveAccount": "계정이 없으신가요?",
     "orLoginWith": "또는 다음으로 로그인",
     "loginWithProvider": "%{provider} 계정으로 로그인"
-  }
+  },
+  "email": "이메일",
+  "password": "비밀번호",
+  "emailLogin": "이메일 로그인",
+  "findPassword": "비밀번호 찾기",
+  "verifyEmail": "이메일 인증"
 }
