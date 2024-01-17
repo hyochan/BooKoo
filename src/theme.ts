@@ -42,9 +42,19 @@ export type CustomAppTheme = typeof light & DoobooThemeParams;
 export const dark: CustomAppTheme = {
   bg: {
     basic: colors.dusk,
+    disabled: '#FFF',
+  },
+  text: {
+    label: colors.whiteGray,
+    placeholder: colors.lightGray,
   },
   role: {
     border: colors.mediumGray,
+  },
+  button: {
+    disabled: {
+      bg: colors.mediumGray,
+    },
   },
 };
 
