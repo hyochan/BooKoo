@@ -24,6 +24,11 @@ export const colors = {
 export const light: DoobooThemeParams = {
   role: {
     primary: colors.main,
+    border: colors.paleGrey,
+  },
+  text: {
+    basic: colors.dusk,
+    label: colors.mediumGray,
   },
   button: {
     primary: {
