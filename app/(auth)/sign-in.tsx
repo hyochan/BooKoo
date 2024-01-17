@@ -1,10 +1,12 @@
-import {useState} from 'react';
+import type {FieldValues, SubmitHandler} from 'react-hook-form';
+import {Controller, useForm} from 'react-hook-form';
 import {Pressable} from 'react-native';
 import styled, {css} from '@emotion/native';
 import {Button, EditText, Icon, Typography, useDooboo} from 'dooboo-ui';
 import {Stack} from 'expo-router';
 
-import {validateEmail} from '../../src/utils/common';
+import {t} from '../../src/STRINGS';
+import {isEmailValid} from '../../src/utils/common';
 
 const Container = styled.View`
   flex: 1;
@@ -21,12 +23,14 @@ const Content = styled.View`
   gap: 20px;
 `;
 
-type Props = {};
-
-export default function Page({}: Props): JSX.Element {
+export default function Page(): JSX.Element {
   const {theme} = useDooboo();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {control, handleSubmit, formState} = useForm();
+
+  const onSubmit: SubmitHandler<FieldValues> = async ({email, password}) => {
+    console.log('email: ', email);
+    console.log('password: ', password);
+  };
 
   return (
     <Container>
@@ -37,45 +41,60 @@ export default function Page({}: Props): JSX.Element {
             color: ${theme.text.basic};
           `}
         >
-          Email Login
+          {t('signIn.title')}
         </Typography.Heading1>
       </TitleContainer>
       <Content>
-        <EditText
-          colors={{
-            focused: theme.role.primary,
-          }}
-          endElement={
-            validateEmail(email) ? (
-              <Icon color={theme.role.primary} name="Check" size={18} />
-            ) : null
-          }
-          label="Email"
-          onChangeText={setEmail}
-          placeholder="aa@email.com"
-          textInputProps={{
-            keyboardType: 'email-address',
-          }}
-          value={email}
+        <Controller
+          control={control}
+          name="email"
+          render={({field: {onChange, value}}) => (
+            <EditText
+              colors={{
+                focused: theme.role.primary,
+              }}
+              endElement={
+                value && isEmailValid(value) ? (
+                  <Icon color={theme.role.primary} name="Check" size={18} />
+                ) : null
+              }
+              label="Email"
+              onChangeText={onChange}
+              placeholder="aa@email.com"
+              textInputProps={{
+                keyboardType: 'email-address',
+              }}
+              value={value}
+            />
+          )}
+          rules={{required: true, validate: (value) => isEmailValid(value)}}
         />
-        <EditText
-          colors={{
-            focused: theme.role.primary,
-          }}
-          endElement={
-            password ? (
-              <Icon color={theme.role.primary} name="Check" size={18} />
-            ) : null
-          }
-          label="Password"
-          onChangeText={setPassword}
-          placeholder="********"
-          secureTextEntry
-          value={password}
+
+        <Controller
+          control={control}
+          name="password"
+          render={({field: {onChange, value}}) => (
+            <EditText
+              colors={{
+                focused: theme.role.primary,
+              }}
+              endElement={
+                value ? (
+                  <Icon color={theme.role.primary} name="Check" size={18} />
+                ) : null
+              }
+              label="Password"
+              onChangeText={onChange}
+              placeholder="********"
+              secureTextEntry
+              value={value}
+            />
+          )}
+          rules={{required: true}}
         />
         <Button
-          disabled={!email || !password || !validateEmail(email)}
-          onPress={() => {}}
+          disabled={!formState.isValid}
+          onPress={handleSubmit(onSubmit)}
           style={css`
             margin-top: 20px;
           `}
