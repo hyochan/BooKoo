@@ -5,10 +5,8 @@ import styled, {css} from '@emotion/native';
 import {Button, Typography, useDooboo} from 'dooboo-ui';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import {useRouter} from 'expo-router';
-import {useSetRecoilState} from 'recoil';
 
 import {SvgLogo} from '../../src/icons';
-import {authRecoilState} from '../../src/recoil/atoms';
 import {t} from '../../src/STRINGS';
 import ButtonSocialSignIn from '../../src/uis/ButtonSocialSignIn';
 import {showAlert} from '../../src/utils/alert';
@@ -47,7 +45,6 @@ const Container = styled.View`
 `;
 
 export default function Intro(): JSX.Element {
-  const setAuthId = useSetRecoilState(authRecoilState);
   const {bottom} = useSafeAreaInsets();
   const {theme, themeType} = useDooboo();
   const {push, replace} = useRouter();
@@ -137,9 +134,7 @@ export default function Intro(): JSX.Element {
           />
           <Button
             onPress={() => {
-              setAuthId('1234');
-              replace('/');
-              // push('/sign-in');
+              push('/sign-in');
             }}
             style={css`
               width: 260px;
@@ -153,7 +148,7 @@ export default function Intro(): JSX.Element {
                 font-family: Pretendard-Bold;
               `,
             }}
-            text={t('signIn')}
+            text={t('login')}
           />
           <Typography.Body3
             style={css`
@@ -178,7 +173,7 @@ export default function Intro(): JSX.Element {
                   text-decoration-color: ${theme.role.primary};
                 `}
               >
-                {t('signUp')}
+                {t('register')}
               </Typography.Body3>
             </Pressable>
           </Typography.Body3>

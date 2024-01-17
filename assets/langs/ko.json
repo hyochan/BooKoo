@@ -2,8 +2,8 @@
   "next": "다음",
   "title": "부쿠",
   "registerPolicyAgreement": "다음 단계로 진행함과 동시에 {{termsForAgreement}} 및 {{privacyAndPolicy}}에 동의하는 것으로 간주합니다.",
-  "signIn": "로그인",
-  "signUp": "회원가입",
+  "login": "로그인",
+  "register": "회원가입",
   "signOut": "로그아웃",
   "google": "구글",
   "error": "에러",
@@ -28,5 +28,11 @@
     "doNotHaveAccount": "계정이 없으신가요?",
     "orLoginWith": "또는 다음으로 로그인",
     "loginWithProvider": "%{provider} 계정으로 로그인"
+  },
+  "signIn": {
+    "title": "이메일 로그인",
+    "email": "이메일",
+    "password": "비밀번호",
+    "forgotPassword": "비밀번호를 잊어버리셨나요?"
   }
 }

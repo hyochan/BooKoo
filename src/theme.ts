@@ -24,6 +24,11 @@ export const colors = {
 export const light: DoobooThemeParams = {
   role: {
     primary: colors.main,
+    border: colors.paleGrey,
+  },
+  text: {
+    basic: colors.dusk,
+    label: colors.mediumGray,
   },
   button: {
     primary: {
@@ -37,9 +42,19 @@ export type CustomAppTheme = typeof light & DoobooThemeParams;
 export const dark: CustomAppTheme = {
   bg: {
     basic: colors.dusk,
+    disabled: '#FFF',
+  },
+  text: {
+    label: colors.whiteGray,
+    placeholder: colors.lightGray,
   },
   role: {
     border: colors.mediumGray,
+  },
+  button: {
+    disabled: {
+      bg: colors.mediumGray,
+    },
   },
 };
 
