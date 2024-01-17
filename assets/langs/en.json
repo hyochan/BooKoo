@@ -2,8 +2,8 @@
   "next": "Next",
   "title": "BooKoo",
   "registerPolicyAgreement": "We consider that you agree with {{termsForAgreement}} and {{privacyAndPolicy}} by going onto next step.",
-  "signIn": "Sign in",
-  "signUp": "Sign up",
+  "login": "Sign in",
+  "register": "Sign up",
   "signOut": "Sign out",
   "google": "Google",
   "error": "Error",
@@ -28,5 +28,11 @@
     "doNotHaveAccount": "Don't have an account?",
     "orLoginWith": "or login with",
     "loginWithProvider": "Sign in with %{provider}"
+  },
+  "signIn": {
+    "title": "Email Login",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?"
   }
 }

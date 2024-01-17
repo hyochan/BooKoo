@@ -58,9 +58,9 @@ export default function Page(): JSX.Element {
                   <Icon color={theme.role.primary} name="Check" size={18} />
                 ) : null
               }
-              label="Email"
+              label={t('signIn.email')}
               onChangeText={onChange}
-              placeholder="aa@email.com"
+              placeholder="your@email.com"
               textInputProps={{
                 keyboardType: 'email-address',
               }}
@@ -83,7 +83,7 @@ export default function Page(): JSX.Element {
                   <Icon color={theme.role.primary} name="Check" size={18} />
                 ) : null
               }
-              label="Password"
+              label={t('signIn.password')}
               onChangeText={onChange}
               placeholder="********"
               secureTextEntry
@@ -106,7 +106,7 @@ export default function Page(): JSX.Element {
               font-family: Pretendard-Bold;
             `,
           }}
-          text="Sign In"
+          text={t('login')}
         />
         <Pressable>
           <Typography.Body2
@@ -124,7 +124,7 @@ export default function Page(): JSX.Element {
               },
             ]}
           >
-            Forgot Password?
+            {t('signIn.forgotPassword')}
           </Typography.Body2>
         </Pressable>
       </Content>

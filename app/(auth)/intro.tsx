@@ -148,7 +148,7 @@ export default function Intro(): JSX.Element {
                 font-family: Pretendard-Bold;
               `,
             }}
-            text={t('signIn')}
+            text={t('login')}
           />
           <Typography.Body3
             style={css`
@@ -173,7 +173,7 @@ export default function Intro(): JSX.Element {
                   text-decoration-color: ${theme.role.primary};
                 `}
               >
-                {t('signUp')}
+                {t('register')}
               </Typography.Body3>
             </Pressable>
           </Typography.Body3>
