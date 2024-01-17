@@ -126,3 +126,8 @@ This tool is vital for developing the backend infrastructure. First, create an a
 
 
 Now you have all your credentials setup in `.env` 🎉
+
+
+## Design
+
+You can check in [figma file](https://www.figma.com/file/jonN2ZR1rY4CNycGjtDuJl/BooKoo?type=design&mode=design&t=87SPdv6EmYDfhI5V-0).
