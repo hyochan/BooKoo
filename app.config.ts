@@ -8,6 +8,26 @@ import path from 'path';
 
 import {version} from './package.json';
 
+const buildNumber = 1;
+const DEEP_LINK_URL = '[firebaseAppId].web.app';
+const expoProjectId = process.env.expoProjectId;
+
+const convertGoogleClientIdToReverse = (
+  clientId: string,
+): string | undefined => {
+  if (!clientId) {
+    return;
+  }
+
+  const baseClientId = clientId.split('.apps.googleusercontent.com')[0];
+
+  return `com.googleusercontent.apps.${baseClientId}`;
+};
+
+const googleReverseClientIdIOS = convertGoogleClientIdToReverse(
+  process.env.googleClientIdIOS as string,
+);
+
 // https://github.com/expo/expo/issues/23727#issuecomment-1651609858
 if (process.env.STAGE) {
   expand(
@@ -20,10 +40,6 @@ if (process.env.STAGE) {
     }),
   );
 }
-
-const DEEP_LINK_URL = '[firebaseAppId].web.app';
-
-const buildNumber = 1;
 
 export default ({config}: ConfigContext): ExpoConfig => ({
   ...config,
@@ -39,7 +55,13 @@ export default ({config}: ConfigContext): ExpoConfig => ({
     // @ts-ignore
     withAndroidLocalizedName,
     'expo-router',
-    'expo-tracking-transparency',
+    [
+      'expo-tracking-transparency',
+      {
+        userTrackingPermission:
+          'This identifier will be used to deliver personalized ads to you.',
+      },
+    ],
     'expo-localization',
     '@react-native-google-signin/google-signin',
   ],
@@ -53,10 +75,10 @@ export default ({config}: ConfigContext): ExpoConfig => ({
     googleClientIdIOS: process.env.googleClientIdIOS,
     googleClientIdAndroid: process.env.googleClientIdAndroid,
     googleClientIdWeb: process.env.googleClientIdWeb,
-    expoProjectId: process.env.expoProjectId,
+    expoProjectId,
     supabaseUrl: process.env.supabaseUrl,
     supabaseAnonKey: process.env.supabaseAnonKey,
-    eas: {projectId: '0039426d-6590-4b93-9205-5179ab6d6806'},
+    eas: {projectId: expoProjectId},
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -82,23 +104,17 @@ export default ({config}: ConfigContext): ExpoConfig => ({
       UIApplicationSceneManifest: {
         UISceneConfigurations: {},
       },
-      CFBundleURLTypes: [
-        {
-          CFBundleURLSchemes: [
-            'com.googleusercontent.apps.1036469643891-qt6fo024m4bnaai9vppn3uf0jkoc2vvs',
-          ],
-        },
-      ],
+      CFBundleURLTypes: [{CFBundleURLSchemes: [googleReverseClientIdIOS]}],
       NSCameraUsageDescription:
-        'dooboo would like to take your picture and share your photo with users in dooboo.',
+        'BooKoo would like to take your picture and share your photo with users in BooKoo.',
       NSPhotoLibraryAddUsageDescription:
-        'dooboo would like to save photos that you have selected to your photo gallery',
+        'BooKoo would like to save photos that you have selected to your photo gallery',
       NSPhotoLibraryUsageDescription:
-        'dooboo would like to access your gallery for you to pick one and share with others.',
+        'BooKoo would like to access your gallery for you to pick one and share with others.',
       NSUserTrackingUsageDescription:
-        'dooboo would like to access IDFA for tracking purpose for qualified ads servation.',
+        'BooKoo would like to access IDFA for tracking purpose for qualified ads servation.',
       NSLocationWhenInUseUsageDescription:
-        'Give dooboo permission access the location for sending better push notification service.',
+        'Give BooKoo permission access the location for sending better push notification service.',
     },
   },
   android: {
