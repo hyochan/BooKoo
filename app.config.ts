@@ -98,7 +98,7 @@ export default ({config}: ConfigContext): ExpoConfig => ({
     entitlements: {
       'com.apple.developer.applesignin': ['Default'],
     },
-    googleServicesFile: './GoogleService-Info.plist',
+    googleServicesFile: process.env.GOOGLE_SERVICES_IOS,
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
       UIApplicationSceneManifest: {
@@ -128,7 +128,7 @@ export default ({config}: ConfigContext): ExpoConfig => ({
       'NOTIFICATIONS',
       'USER_FACING_NOTIFICATIONS',
     ],
-    googleServicesFile: './google-services.json',
+    googleServicesFile: process.env.GOOGLE_SERVICES_ANDROID,
     adaptiveIcon: {
       foregroundImage: './assets/adaptive_icon.png',
       backgroundColor: '#2F2F2F',

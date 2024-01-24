@@ -124,8 +124,36 @@ This tool is vital for developing the backend infrastructure. First, create an a
 
 <img src="https://github.com/hyochan/BooKoo/assets/27461460/a69269fa-e74b-404d-8135-e0665f6e3eb4" width="640"/>
 
-
 Now you have all your credentials setup in `.env` 🎉
+
+
+## Upload .env variables to [Expo](expo.dev)
+
+To upload secret variables to your Expo project, follow these steps:
+
+1. First, create a production environment file by copying your existing `.env` file. Run this command in your terminal:
+   ```sh
+   cp .env .env.production
+   ```
+
+2. Next, use the `bun` command to handle your production secrets:
+   ```sh
+   bun eas:prod:secrets
+   ```
+
+3. Now, to upload the `GoogleService-Info.plist` and `google-services.json` files as secrets in your Expo project, follow these commands:
+
+   - For the iOS Google services file:
+     ```sh
+     eas secret:create --scope project --name GOOGLE_SERVICES_IOS --type file --value ./GoogleService-Info.plist
+     ```
+
+   - For the Android Google services file:
+     ```sh
+     eas secret:create --scope project --name GOOGLE_SERVICES_ANDROID --type file --value ./google-services.json
+     ```
+
+For detailed guidance, refer to the [Expo documentation on uploading a secret file](https://docs.expo.dev/build-reference/variables/#how-to-upload-a-secret-file-and-use-it-in-my-app-config).
 
 
 ## Design
