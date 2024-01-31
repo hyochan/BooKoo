@@ -45,7 +45,7 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   ...config,
   name: 'BooKoo',
   scheme: 'BooKoo',
-  slug: 'BooKoo',
+  slug: 'bookoo',
   privacy: 'public',
   platforms: ['ios', 'android', 'web'],
   version,
