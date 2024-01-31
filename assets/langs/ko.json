@@ -15,6 +15,8 @@
   "privacyAndPolicy": "개인정보 보호정책",
   "signingIn": "로그인 중입니다.",
   "playServiceIsNotActivated": "Play 서비스가 활성화되지 않았습니다.",
+  "email": "이메일",
+  "password": "비밀번호",
   "onboarding": {
     "title": "온보딩",
     "message1": "나의 수입과 지출을 편리하게 기록할 수 있습니다.",
@@ -31,8 +33,6 @@
   },
   "signIn": {
     "title": "이메일 로그인",
-    "email": "이메일",
-    "password": "비밀번호",
     "forgotPassword": "비밀번호를 잊어버리셨나요?"
   }
 }

@@ -58,7 +58,7 @@ export default function Page(): JSX.Element {
                   <Icon color={theme.role.primary} name="Check" size={18} />
                 ) : null
               }
-              label={t('signIn.email')}
+              label={t('email')}
               onChangeText={onChange}
               placeholder="your@email.com"
               textInputProps={{
@@ -83,7 +83,7 @@ export default function Page(): JSX.Element {
                   <Icon color={theme.role.primary} name="Check" size={18} />
                 ) : null
               }
-              label={t('signIn.password')}
+              label={t('password')}
               onChangeText={onChange}
               placeholder="********"
               secureTextEntry
