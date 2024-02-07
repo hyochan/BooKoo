@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import type {FieldValues, SubmitHandler} from 'react-hook-form';
 import {Controller, useForm} from 'react-hook-form';
 import {Pressable} from 'react-native';
@@ -26,6 +27,7 @@ const Content = styled.View`
 export default function Page(): JSX.Element {
   const {theme} = useDooboo();
   const {control, handleSubmit, formState} = useForm();
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit: SubmitHandler<FieldValues> = async ({email, password}) => {
     console.log('email: ', email);
@@ -34,14 +36,14 @@ export default function Page(): JSX.Element {
 
   return (
     <Container>
-      <Stack.Screen options={{title: 'Sign In'}} />
+      <Stack.Screen options={{title: t('register')}} />
       <TitleContainer>
         <Typography.Heading1
           style={css`
             color: ${theme.text.basic};
           `}
         >
-          {t('signIn.title')}
+          {t('register')}
         </Typography.Heading1>
       </TitleContainer>
       <Content>
@@ -79,18 +81,24 @@ export default function Page(): JSX.Element {
                 focused: theme.role.primary,
               }}
               endElement={
-                value ? (
-                  <Icon color={theme.role.primary} name="Check" size={18} />
-                ) : null
+                <Pressable onPress={() => setShowPassword(!showPassword)}>
+                  <Icon
+                    color={theme.role.primary}
+                    name={showPassword ? 'Eye' : 'EyeClosed'}
+                    size={18}
+                  />
+                </Pressable>
               }
               label={t('password')}
               onChangeText={onChange}
               placeholder="********"
-              secureTextEntry
+              secureTextEntry={showPassword ? false : true}
               value={value}
             />
           )}
-          rules={{required: true}}
+          rules={{
+            required: true,
+          }}
         />
         <Button
           disabled={!formState.isValid}
@@ -106,27 +114,8 @@ export default function Page(): JSX.Element {
               font-family: Pretendard-Bold;
             `,
           }}
-          text={t('login')}
+          text={t('register')}
         />
-        <Pressable>
-          <Typography.Body2
-            style={[
-              css`
-                color: ${theme.role.primary};
-
-                font-family: Pretendard-Bold;
-                align-self: center;
-                text-decoration: underline;
-                /* // TODO: text-decoration-color is not working in emotion */
-              `,
-              {
-                textDecorationColor: theme.role.primary,
-              },
-            ]}
-          >
-            {t('signIn.forgotPassword')}
-          </Typography.Body2>
-        </Pressable>
       </Content>
     </Container>
   );
